@@ -31,6 +31,26 @@
     display:block;
 }
 
+input{
+    background-color: whitesmoke;
+    border: none;
+    margin: 0;
+    font-size: 30px; 
+    text-align: center;
+    font-family: sans-serif;
+    color:black;
+    height: 60px;
+    width: 60px;
+
+}
+
+
+
+input:hover{
+    background-color:lightskyblue;
+}
+
+
 #container div{
     background-color: whitesmoke;
     height: 60px;
