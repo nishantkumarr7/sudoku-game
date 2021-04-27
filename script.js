@@ -60,13 +60,9 @@ function resetColor() {
 var board = [[], [], [], [], [], [], [], [], []]
 var ans = [[], [], [], [], [], [], [], [], []]
 
-function match () {
-
-    
-}
 
 let button = document.getElementById('generate-sudoku')
-let check = document.getElementById('check');
+let check = document.getElementById('check')
 let solve = document.getElementById('solve')
 
 console.log(arr)
@@ -78,13 +74,14 @@ function changeBoard(board) {
                 arr[i][j].innerText = board[i][j]
             }
             else{
-                arr[i][j].innerText = ''
+                arr[i][j].innerHTML = `<input type="text" id=${100+i*9+j} maxlength="1">`
             }
 
            
         }
     }
 }
+
 
 
 button.onclick = function () {
@@ -105,10 +102,7 @@ button.onclick = function () {
     xhrRequest.send()
 }
 
-check.onclick = function () {
-    var x = document.getElementsByClass("0").value;
-    arr[0][0].innerText = x;
-}
+
 //to be completed by student
 function isPossible(board, sr, sc, val) {
     for (var row = 0; row < 9; row++) {
@@ -160,6 +154,43 @@ function solveSudokuHelper(board, sr, sc) {
             board[sr][sc] = 0;
         }
     }
+}
+
+function getinput (board,ans) {
+   
+    for(var i=0;i<9;i++) {
+        for(var j=0;j<9;j++){
+        
+            if(board[i][j] != 0){
+               
+                ans[i][j] = board[i][j];
+            }
+            else{
+               
+             ans[i][j] = document.getElementById(`${100+i*9+j}`).value;
+
+            }
+        }
+    }
+
+}
+
+function output(ans){
+    
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+
+           arr[i][j].innerText = ans[i][j]
+
+
+        }
+    }
+}
+
+check.onclick = function () {
+    getinput(board,ans)
+   
+
 }
 
 function solveSudoku(board) {
