@@ -38,7 +38,7 @@ function setColor(temp) {
     for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++) {
             if (temp[i][j] == true) {
-                arr[i][j].style.color = "#DC3545";
+                arr[i][j].style.color = "#0753E7";
             }
 
         }
@@ -59,6 +59,7 @@ function resetColor() {
 
 var board = [[], [], [], [], [], [], [], [], []]
 var ans = [[], [], [], [], [], [], [], [], []]
+var res = [[], [], [], [], [], [], [], [], []]
 
 
 let button = document.getElementById('generate-sudoku')
@@ -102,6 +103,23 @@ button.onclick = function () {
     xhrRequest.send()
 }
 
+function print() {
+    for(var i=0;i<9;i++){
+        for(var j=0;j<9;j++){
+            
+           arr[i][j].innerText = res[i][j]
+        }
+        
+    }
+}
+function storeres(board){
+    for(var i=0;i<9;i++){
+        for(var j=0;j<9;j++){
+            res[i][j] = board[i][j]
+        }
+        
+    }
+}
 
 //to be completed by student
 function isPossible(board, sr, sc, val) {
@@ -134,7 +152,7 @@ function isPossible(board, sr, sc, val) {
 //to be completed by student
 function solveSudokuHelper(board, sr, sc) {
     if (sr == 9) {
-        changeBoard(board);
+        storeres(board);
         return;
     }
     if (sc == 9) {
@@ -175,7 +193,7 @@ function getinput (board,ans) {
 
 }
 
-function output(ans){
+function output(){
     
     for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++) {
@@ -185,10 +203,31 @@ function output(ans){
 
         }
     }
+    
+}
+
+function matching(){ 
+    for(var i=0;i<9;i++){
+        for(var j=0;j<9;j++){
+           var y = parseInt(ans[i][j]);
+           console.log(y,res[i][j]);
+           if(y == res[i][j]){
+               if(board[i][j] == 0){
+                 document.getElementById(100+9*i+j).style.backgroundColor = "#9DF082";
+               }
+           }
+           else{
+            document.getElementById(100+9*i+j).style.backgroundColor = "#ff726f";
+           }
+        }
+    }
 }
 
 check.onclick = function () {
     getinput(board,ans)
+    solveSudoku(board)
+    matching()
+
    
 
 }
@@ -199,5 +238,6 @@ function solveSudoku(board) {
 
 solve.onclick = function () {
     solveSudoku(board)
+    print()
 
 }
