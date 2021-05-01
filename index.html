@@ -326,13 +326,35 @@
         <button type="button" class="btn btn-light" id="solve">Solve</button>
         
     </div>
-   <div id="right">
-       <p id="timer">Time:</p>
-    <div id="display">
-        00|00|00
+    <div id="right">
+        <img class="clock"src="clock.png" alt="clock">
+     <div id="display">
+         00:00:00
+     </div>
     </div>
 
-   </div>
+    <button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-text"> <h3> Rules:</h3>
+        <ul>
+        <li> Every sudoku puzzle has only one correct solution.</li>
+       <li> Each of the nine blocks has to contain the numbers 1 to 9 in its squares.</li>
+       <li> Each number can only appear once column, row or 3x3 box.</li>
+        </ul>
+    </div>
+        <button type="button" id="startbtn" class="btn btn-secondary"><span id="start">Start</span></button>
+  </div>
+
+</div>
+
+    
+ 
 
 </body>
 </html>

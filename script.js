@@ -57,6 +57,31 @@ function resetColor() {
     }
 }
 
+
+//code for modal
+var modal = document.getElementById("myModal");
+
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+function displaymodal() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+displaymodal()
+
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
@@ -146,10 +171,12 @@ var ans = [[], [], [], [], [], [], [], [], []]
 var res = [[], [], [], [], [], [], [], [], []]
 
 
-let button = document.getElementById('generate-sudoku')
-let check = document.getElementById('check')
+let button = document.getElementById('generate-sudoku');
+let check = document.getElementById('check');
 let restart = document.getElementById('restart');
-let solve = document.getElementById('solve')
+let solve = document.getElementById('solve');
+let start = document.getElementById('startbtn');
+
 
 console.log(arr)
 function changeBoard(board) {
@@ -170,7 +197,7 @@ function changeBoard(board) {
 
 
 
-button.onclick = function () {
+function newpuzzle() {
     var xhrRequest = new XMLHttpRequest()
     xhrRequest.onload = function () {
         var response = JSON.parse(xhrRequest.response)
@@ -188,7 +215,14 @@ button.onclick = function () {
     //we can change the difficulty of the puzzle the allowed values of difficulty are easy, medium, hard and random
     xhrRequest.send()
 }
+button.onclick = function(){
+    newpuzzle();
+}
 
+start.onclick = function(){
+    newpuzzle();
+    modal.style.display = "none";
+}
 function print() {
     for(var i=0;i<9;i++){
         for(var j=0;j<9;j++){
@@ -315,6 +349,14 @@ check.onclick = function () {
     solveSudoku(board)
     matching() 
 
+    if(count === 0){
+        status = "started";
+        startStop();
+        document.getElementById("modal-text").innerHTML = '<div style="text-align:center;"><h3>Congratulations</h3><p>You have solved this puzzle</p><div>';
+        document.getElementById("start").innerHTML = "Next Puzzle";
+        displaymodal();
+    }
+   
 
 }
 
