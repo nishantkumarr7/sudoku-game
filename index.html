@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <link rel="icon" type="image/png" href="sudokuicon.ico"/>
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div id=sudoku>
+    <div id="sudoku">
         <h1>SUDOKU</h1>
     </div>
-      <br><br>
+     
     <div id="container">
 
         <div class="lsb tsb" id="0">
@@ -313,13 +317,22 @@
 
 
     </div>
-    <br>
+  
     <div id="buttons">
-       
-            <button type="button" class="btn btn-warning" id="check">Check</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-success" id="solve">Solve</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-danger" id="generate-sudoku">Get New
-            Puzzle</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-light" id="generate-sudoku">Get New
+            Puzzle</button>
+        <button type="button" class="btn btn-light" id="check">Check</button>
+        <button type="button" class="btn btn-light" id="restart">Restart</button>
+        <button type="button" class="btn btn-light" id="solve">Solve</button>
+        
     </div>
+   <div id="right">
+       <p id="timer">Time:</p>
+    <div id="display">
+        00|00|00
+    </div>
+
+   </div>
+
 </body>
 </html>

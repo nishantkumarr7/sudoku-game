@@ -1,50 +1,125 @@
 #container{
     height: auto;
+    position: absolute;
     width: 540px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-evenly ; 
-    margin: 0 auto;
+    margin-left: 700px;
+    margin-top: 100px;
 }
 #sudoku{
     display:block;
     color:black;
-    margin:4px auto;
+    font-family: 'Brush Script MT', cursive;
     text-align: center;
+    position:relative;
+    margin-top: 20px;
+    margin-bottom: 0;
+    background-color:whitesmoke;
+
 }
-#generate-sudoku{
+
+#buttons{
+    position: relative;
+    height:900px;
+    width:300px;
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color:whitesmoke;
+}
+button{
+    position: absolute;
+    left: 50px;
+    width: 190px;
+    cursor: pointer;
+    
+
+  }
+
+  #generate-sudoku{
+    top:140px;
     margin:auto;
-    display:block;;
+    display:block;
+    background-color:#A0A0A0;
+    color: white;
+}
+#check{
+    top:240px;
+    margin:auto;
+    display:block;
+    background-color:#A0A0A0;
+    color: white;
+}
+#restart{
+    top:340px;
+    margin:auto;
+    display:block;
+    background-color:#A0A0A0;
+    color: white;
 }
 
 
 #solve{
+    top:440px;
     margin:auto;
     display:block;
+    background-color:#A0A0A0;
+    color: white;
 
 }
-
-#check{
-    margin:auto;
-    display:block;
+#right{
+    position:absolute;
+    left: 1550px;
+    top:90px;
+    height:900px;
+    width:300px;
+    margin-top: 0px;
+   
+    background-color:whitesmoke;
 }
-
+#display{
+    background-color:#A0A0A0;
+    color:white;
+    display: block;
+    padding: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    text-align: center;
+    align-content: space-evenly ; 
+    font-size: 300%;
+}
+#timer{
+    font-family: Helvetica, sans-serif;
+    margin-top: 100px;
+    margin-bottom: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size:50px;
+    
+}
 input{
     background-color: whitesmoke;
     border: none;
     margin: 0;
-    font-size: 30px; 
+    font-size: 25px; 
     text-align: center;
     font-family: sans-serif;
+    border: 0 none;
     color:black;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
 
 }
 
-
+input:focus{
+    border: 0px none;
+    box-shadow: 2px 1px 10px #888888;
+}
 
 input:hover{
     background-color:lightskyblue;
@@ -70,34 +145,42 @@ input:hover{
 }
 
 .lsb{
-    border-left: black 2px solid;
+    border-left: black 1.5px solid;
+   box-shadow: 1.5px 1px 10px #888888;
 }
 
 .bsb{
-    border-bottom: black 2px solid;
+    border-bottom:  black 1.5px solid;
+   box-shadow: 1.5px 1px 10px #888888; 
 }
 
 .rsb{
-    border-right: black 2px solid;
+    border-right: black 1.5px solid;
+    box-shadow: 1.5px 1px 10px #888888; 
 }
 
 .tsb{
-    border-top: black 2px solid;
+    border-top: black 1.5px solid;
+   box-shadow: 1.5px 1px 10px #888888;
 }
 
 
 .ldb{
-    border-left: black 0.6px dashed;
+   /* border-left: black 0.6px dashed;*/
+    box-shadow: 1px 1px 10px #888888;
 }
 
 .bdb{
-    border-bottom: black 0.6px dashed;
+    /*border-bottom: black 0.6px dashed;*/
+    box-shadow: 1px 1px 10px #888888;
 }
 
 .rdb{
-    border-right: black 0.6px dashed;
+   /* border-right: black 0.6px dashed;*/
+    box-shadow: 1px 1px 10px #888888;
 }
 
 .tdb{
-    border-top: black 0.6px dashed;
+   /* border-top: black 0.6px dashed;*/
+    box-shadow: 1px 1px 10px #888888;
 }

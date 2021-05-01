@@ -57,6 +57,90 @@ function resetColor() {
     }
 }
 
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+
+let displaySeconds = 0;
+let displayMinutes = 0;
+let displayHours = 0;
+
+let interval = null;
+
+let status = "stopped";
+
+function stopWatch(){
+
+    seconds++;
+
+    if(seconds / 60 === 1){
+        seconds = 0;
+        minutes++;
+
+        if(minutes / 60 === 1){
+            minutes = 0;
+            hours++;
+        }
+
+    }
+
+    if(seconds < 10){
+        displaySeconds = "0" + seconds.toString();
+    }
+    else{
+        displaySeconds = seconds;
+    }
+
+    if(minutes < 10){
+        displayMinutes = "0" + minutes.toString();
+    }
+    else{
+        displayMinutes = minutes;
+    }
+
+    if(hours < 10){
+        displayHours = "0" + hours.toString();
+    }
+    else{
+        displayHours = hours;
+    }
+
+    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+
+}
+
+
+
+function startStop(){
+
+    if(status === "stopped"){
+
+
+        interval = window.setInterval(stopWatch, 1000);
+        status = "started";
+
+    }
+    else{
+
+        window.clearInterval(interval);
+        status = "stopped";
+
+    }
+
+}
+
+function reset(){
+
+    window.clearInterval(interval);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    document.getElementById("display").innerHTML = "00:00:00";
+    status = "stopped";
+    startStop();
+
+}
+
 var board = [[], [], [], [], [], [], [], [], []]
 var ans = [[], [], [], [], [], [], [], [], []]
 var res = [[], [], [], [], [], [], [], [], []]
@@ -64,6 +148,7 @@ var res = [[], [], [], [], [], [], [], [], []]
 
 let button = document.getElementById('generate-sudoku')
 let check = document.getElementById('check')
+let restart = document.getElementById('restart');
 let solve = document.getElementById('solve')
 
 console.log(arr)
@@ -97,6 +182,7 @@ button.onclick = function () {
         setTemp(board, temp)
         setColor(temp)
         changeBoard(board)
+        reset();
     }
     xhrRequest.open('get', 'https://sugoku.herokuapp.com/board?difficulty=easy')
     //we can change the difficulty of the puzzle the allowed values of difficulty are easy, medium, hard and random
@@ -121,7 +207,6 @@ function storeres(board){
     }
 }
 
-//to be completed by student
 function isPossible(board, sr, sc, val) {
     for (var row = 0; row < 9; row++) {
         if (board[row][sc] == val) {
@@ -149,7 +234,6 @@ function isPossible(board, sr, sc, val) {
 
 }
 
-//to be completed by student
 function solveSudokuHelper(board, sr, sc) {
     if (sr == 9) {
         storeres(board);
@@ -205,8 +289,9 @@ function output(){
     }
     
 }
-
+var count;
 function matching(){ 
+    count = 0;
     for(var i=0;i<9;i++){
         for(var j=0;j<9;j++){
            var y = parseInt(ans[i][j]);
@@ -218,18 +303,25 @@ function matching(){
            }
            else{
             document.getElementById(100+9*i+j).style.backgroundColor = "#ff726f";
+            count++;
            }
         }
     }
+
 }
 
 check.onclick = function () {
     getinput(board,ans)
     solveSudoku(board)
-    matching()
+    matching() 
 
+
+}
+
+restart.onclick = function () {
+    changeBoard(board);
+    reset();
    
-
 }
 
 function solveSudoku(board) {
@@ -239,5 +331,7 @@ function solveSudoku(board) {
 solve.onclick = function () {
     solveSudoku(board)
     print()
+    status = "started";
+    startStop();
 
 }
