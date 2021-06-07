@@ -225,8 +225,28 @@ input:hover{
    
     #container{
      margin-top:70px;
+     width: 380px;
+     height: auto;
      
     }
+    #container div{
+        
+        height: 42px;
+        width: 42px;
+        padding-bottom: 1px;
+        font-size: 22px; 
+        line-height: 46px;
+        
+
+    } 
+    input{
+     bottom: 1px;
+    font-size: 22px; 
+    height: 30px;
+     width: 32px;
+        
+        }
+
     #display{
         top: 60px;
         margin-top: 8px;
@@ -261,4 +281,66 @@ input:hover{
         margin: 10px;
        left:12%;
     }
+  }
+  @media screen and (max-width: 400px) {
+      
+    #container{
+        margin-top:50px;
+        width: 270px;
+        height: auto;
+        
+       }
+       #container div{
+        height: 30px;
+        width: 30px;
+        padding-bottom: 1px;
+        font-size: 18px;
+        line-height: 34px;
+       } 
+       input{
+        bottom: 1px;
+        font-size: 18px;
+        height: 22px;
+        width: 22px;
+           
+           }
+   
+       #display{
+           top: 60px;
+           margin-top: 8px;
+           right: 42%;
+       }
+      
+       button {
+           position: relative;
+          
+       }
+       #generate-sudoku{
+           top:5px;
+           display: inline-block;
+           margin: 10px;
+           padding: 5px;
+           left:5%;
+       }
+       #check {
+           top:5px;
+           display: inline-block;
+           margin: 10px;
+           padding: 5px;
+           left:5%;
+       }
+       #restart {
+           top: 5px;
+           display: inline-block;
+           margin: 10px;
+           padding: 5px;
+           left:5%;
+       }
+       #solve {
+           top: 5px;
+           display: inline-block;
+           margin: 10px;
+           padding: 5px;
+           left:5%;
+       }
   }
