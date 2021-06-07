@@ -9,7 +9,7 @@
     align-content: space-evenly ; 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 55px;
+    margin-top: 35px;
 }
 
 #container div{
@@ -218,3 +218,47 @@ input:hover{
     margin-right: auto;
     width: 30%;
 }
+
+
+
+@media screen and (max-width: 750px) {
+   
+    #container{
+     margin-top:70px;
+     
+    }
+    #display{
+        top: 60px;
+        margin-top: 8px;
+        right: 42%;
+    }
+   
+    button {
+        position: relative;
+       
+    }
+    #generate-sudoku{
+        top:5px;
+        display: inline-block;
+        margin: 10px;
+        left:15%;
+    }
+    #check {
+        top:5px;
+        display: inline-block;
+        margin: 10px;
+        left:14%;
+    }
+    #restart {
+        top: 5px;
+        display: inline-block;
+        margin: 10px;
+        left:13%;
+    }
+    #solve {
+        top: 5px;
+        display: inline-block;
+        margin: 10px;
+       left:12%;
+    }
+  }
