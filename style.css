@@ -195,7 +195,7 @@ input:hover{
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
+    width: 60%;
   }
   
   
@@ -281,6 +281,9 @@ input:hover{
         margin: 10px;
        left:12%;
     }
+    .modal-content {
+        width: 80%;
+    }
   }
   @media screen and (max-width: 400px) {
       
@@ -306,9 +309,11 @@ input:hover{
            }
    
        #display{
-           top: 60px;
-           margin-top: 8px;
+           top: 30px;
+           margin-top: 38px;
            right: 42%;
+           border:0.2rem solid #A0A0A0;
+           border-radius: 4px;
        }
       
        button {
@@ -342,5 +347,8 @@ input:hover{
            margin: 10px;
            padding: 5px;
            left:5%;
+       }
+       .modal-content {
+           width: 80%;
        }
   }
